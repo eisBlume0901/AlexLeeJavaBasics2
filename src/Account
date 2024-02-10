@@ -1,0 +1,104 @@
+/* GettersAndSetters Tutorial
+Getters and setters play an important role in retrieving and updating the value of a variable outside
+the encapsulating class. A setter updates the value of a variable, while a getter reads the value of a
+variable. */
+public class Account
+{
+    String name; /* String name and int age values changes everytime, we create a new value.
+    This is used to stop declaring datatype everytime.
+    */
+    int age;
+    public static void main(String[] args)
+    {
+        Account a = new Account();
+        //Create an object using the class Account.
+
+        a.name = "Fevie";
+        /* Getter method returns the value of the attribute.
+        Setter method takes a parameter and assigns it to the attribute.
+        You can get the datatype and variable by setting a new object named
+        Account a = new Account(). Use the variable declared, which is a, then get the method.
+         */
+        a.age = 45;
+        a.printDetails();
+        /* However, it would be repetitive to do another set of
+        a.name
+        a.age
+        a.printDetails()
+
+        for a large data set. Therefore, create a method.
+         */
+
+        a.setName("Mary Kate");
+        a.setAge(21);
+        a.printDetails();
+        /* Not putting a.printDetails() here would result to
+        Mary Odette, 19 only since the printDetails() function only reads the last set.
+        However, putting a.printDetails() under this set would be printed out.
+         */
+        a.setName("Mary Odette");
+        a.setAge(19);
+        a.printDetails();
+
+        a.setName("Emerald");
+        a.setAge(20);
+        System.out.println(a.getName()); //The name Emerald was retrieved and displayed without using a.printDetails()
+        System.out.println(a.getAge()); //The age 20 was retrieved and displayed without using a.printDetails()
+
+
+    }
+
+    public void setName(String name) /*This is a setter
+    Setters set within the parameters. */
+    {
+
+        this.name = name;
+        /* name = name confuses the computer by setting the String name under public
+        class Account equals to String name under public void setName.
+
+        this. is a reference to the current object (in this case, public void setName(String name)) - the
+        object whose method or constructor being called. You can refer to any member of the current object
+        from within an instance method or a constructor by using this.
+         */
+    }
+
+    public void setAge(int age) //This is a setter
+    {
+        /* There is no static since this. method is accessible through the class Account.
+        However, we put a dot for this.name which is an alternative for static.
+         */
+        this.age = age;
+
+    }
+
+    public String getName() /* This is a getter.
+    Getters get the variable, so we can return them right away.
+    */
+
+    {
+        return this.name;
+    }
+
+    public Integer getAge()
+    {
+        return this.age;
+    }
+
+    /* Alternative for the following methods:
+    public void setName(String name)
+    public void setAge(int age)
+    public String getName()
+    public Integer getAge()
+
+    There is an automatic getters and setters.
+    For eclipse, right-click the IDE environment -> source -> Generate Getters and Setters.
+    For Intellij, right-click the IDE environment -> Generate -> Getters and Setters
+        Shortcut is alt + insert
+    https://www.jetbrains.com/help/idea/generating-code.html#generate-constructors
+     */
+    public void printDetails()
+    {
+        System.out.println(name + ", " + age);
+        System.out.println(getName() + ", " + getAge()); //Alternative using getters
+    }
+}
